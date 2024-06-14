@@ -10,7 +10,11 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({ 
+  origin: 'https://demo-password-reset.netlify.app',
+  credentials: true 
+}));
+
 app.use(bodyParser.json());
 
 // Routes
