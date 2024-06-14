@@ -72,14 +72,14 @@ router.post('/login', async (req, res) => {
       const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASS,
+          user: 'smuthukumar2443@gmail.com',
+          pass: 'btiyawjbmmgyhdvj',
         },
         tls: { rejectUnauthorized: false },
       });
   
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: 'smuthukumar2443@gmail.com',
         to: email,
         subject: 'Reset Password',
         text: `Click the following link to reset your password: https://demo-password-reset.netlify.app/reset-password/${token}`,
