@@ -9,8 +9,6 @@ require('dotenv').config();
 
 router.use(express.json());
 
-const JWT_SECRET = process.env.JWT_SECRET;
-
 // Signup route
 router.post('/signup', async (req, res) => {
   const { username, email, password, repeatPassword } = req.body;
@@ -51,7 +49,7 @@ router.post('/login', async (req, res) => {
       }
       
       // Generate JWT token
-      const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user._id }, process.env.KEY, { expiresIn: '1h' });
       
       res.json({ token, username: user.username });
     } catch (err) {
